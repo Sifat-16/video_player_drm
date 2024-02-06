@@ -1,0 +1,1 @@
+ E:\\sif\\video_player\\video_player\\example\\.dart_tool\\flutter_build\\6db8a148717b0495c9f0a64f6847416a\\native_assets.yaml: 
