@@ -136,6 +136,7 @@ class DataSource {
     this.formatHint,
     this.asset,
     this.package,
+    this.licenseProvider,
     this.httpHeaders = const <String, String>{},
   });
 
@@ -152,11 +153,9 @@ class DataSource {
   final String? uri;
 
   /// Is drm supported or not
-
   final bool? isDrmSupported;
 
   /// Drm license url
-
   final String? drmLicenseUrl;
 
   /// **Android only**. Will override the platform's generic file format
@@ -170,6 +169,8 @@ class DataSource {
 
   /// The name of the asset. Only set for [DataSourceType.asset] videos.
   final String? asset;
+
+  final String? licenseProvider;
 
   /// The package that the asset was loaded from. Only set for
   /// [DataSourceType.asset] videos.

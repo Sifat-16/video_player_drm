@@ -38,22 +38,27 @@ class AndroidVideoPlayer extends VideoPlayerPlatform {
     String? formatHint;
     bool? isDrmSupported;
     String? drmLicenseUrl;
+    String? licenseProvider;
     Map<String, String> httpHeaders = <String, String>{};
     switch (dataSource.sourceType) {
       case DataSourceType.asset:
         asset = dataSource.asset;
         packageName = dataSource.package;
+        licenseProvider = dataSource.licenseProvider;
       case DataSourceType.network:
         uri = dataSource.uri;
         formatHint = _videoFormatStringMap[dataSource.formatHint];
         isDrmSupported = dataSource.isDrmSupported;
         drmLicenseUrl = dataSource.drmLicenseUrl;
         httpHeaders = dataSource.httpHeaders;
+        licenseProvider = dataSource.licenseProvider;
       case DataSourceType.file:
         uri = dataSource.uri;
         httpHeaders = dataSource.httpHeaders;
+        licenseProvider = dataSource.licenseProvider;
       case DataSourceType.contentUri:
         uri = dataSource.uri;
+        licenseProvider = dataSource.licenseProvider;
     }
     final CreateMessage message = CreateMessage(
         asset: asset,
@@ -62,7 +67,8 @@ class AndroidVideoPlayer extends VideoPlayerPlatform {
         httpHeaders: httpHeaders,
         formatHint: formatHint,
         isDrmSupported: isDrmSupported,
-        drmLicenseUrl: drmLicenseUrl);
+        drmLicenseUrl: drmLicenseUrl,
+        licenseProvider: licenseProvider);
 
     final TextureMessage response = await _api.create(message);
     return response.textureId;

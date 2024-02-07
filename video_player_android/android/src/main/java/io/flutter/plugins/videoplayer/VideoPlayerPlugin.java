@@ -142,7 +142,11 @@ public class VideoPlayerPlugin implements FlutterPlugin, AndroidVideoPlayerApi {
               "asset:///" + assetLookupKey,
               null,
               new HashMap<>(),
-              options);
+              options,
+                  arg.getIsDrmSupported(),
+                  arg.getDrmLicenseUrl(),
+                  arg.getLicenseProvider()
+          );
     } else {
       Map<String, String> httpHeaders = arg.getHttpHeaders();
       player =
@@ -153,7 +157,11 @@ public class VideoPlayerPlugin implements FlutterPlugin, AndroidVideoPlayerApi {
               arg.getUri(),
               arg.getFormatHint(),
               httpHeaders,
-              options);
+              options,
+                  arg.getIsDrmSupported(),
+                  arg.getDrmLicenseUrl(),
+                  arg.getLicenseProvider()
+          );
     }
     videoPlayers.put(handle.id(), player);
 

@@ -268,6 +268,7 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
       {this.package,
       this.isDrmSupported,
       this.drmLicenseUrl,
+      this.licenseProvider,
       Future<ClosedCaptionFile>? closedCaptionFile,
       this.videoPlayerOptions})
       : _closedCaptionFileFuture = closedCaptionFile,
@@ -291,6 +292,7 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
     this.isDrmSupported,
     this.drmLicenseUrl,
     this.formatHint,
+    this.licenseProvider,
     Future<ClosedCaptionFile>? closedCaptionFile,
     this.videoPlayerOptions,
     this.httpHeaders = const <String, String>{},
@@ -313,6 +315,7 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
     this.formatHint,
     bool? isDrmSupported,
     String? drmLicenseUrl,
+    String? licenseProvider,
     Future<ClosedCaptionFile>? closedCaptionFile,
     this.videoPlayerOptions,
     this.httpHeaders = const <String, String>{},
@@ -320,6 +323,7 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
         dataSource = url.toString(),
         this.isDrmSupported = isDrmSupported,
         this.drmLicenseUrl = drmLicenseUrl,
+        this.licenseProvider = licenseProvider,
         dataSourceType = DataSourceType.network,
         package = null,
         super(const VideoPlayerValue(duration: Duration.zero));
@@ -333,6 +337,7 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
       this.videoPlayerOptions,
       this.isDrmSupported,
       this.drmLicenseUrl,
+      this.licenseProvider,
       this.httpHeaders = const <String, String>{}})
       : _closedCaptionFileFuture = closedCaptionFile,
         dataSource = Uri.file(file.absolute.path).toString(),
@@ -351,6 +356,7 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
     this.videoPlayerOptions,
     this.isDrmSupported,
     this.drmLicenseUrl,
+    this.licenseProvider,
   })  : assert(defaultTargetPlatform == TargetPlatform.android,
             'VideoPlayerController.contentUri is only supported on Android.'),
         _closedCaptionFileFuture = closedCaptionFile,
@@ -388,6 +394,8 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
   /// Only set for [asset] videos. The package that the asset was loaded from.
   final String? package;
 
+  final String? licenseProvider;
+
   Future<ClosedCaptionFile>? _closedCaptionFileFuture;
   ClosedCaptionFile? _closedCaptionFile;
   Timer? _timer;
@@ -420,10 +428,10 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
     switch (dataSourceType) {
       case DataSourceType.asset:
         dataSourceDescription = DataSource(
-          sourceType: DataSourceType.asset,
-          asset: dataSource,
-          package: package,
-        );
+            sourceType: DataSourceType.asset,
+            asset: dataSource,
+            package: package,
+            licenseProvider: licenseProvider);
       case DataSourceType.network:
         dataSourceDescription = DataSource(
           sourceType: DataSourceType.network,
@@ -432,18 +440,19 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
           uri: dataSource,
           formatHint: formatHint,
           httpHeaders: httpHeaders,
+          licenseProvider: licenseProvider,
         );
       case DataSourceType.file:
         dataSourceDescription = DataSource(
-          sourceType: DataSourceType.file,
-          uri: dataSource,
-          httpHeaders: httpHeaders,
-        );
+            sourceType: DataSourceType.file,
+            uri: dataSource,
+            httpHeaders: httpHeaders,
+            licenseProvider: licenseProvider);
       case DataSourceType.contentUri:
         dataSourceDescription = DataSource(
-          sourceType: DataSourceType.contentUri,
-          uri: dataSource,
-        );
+            sourceType: DataSourceType.contentUri,
+            uri: dataSource,
+            licenseProvider: licenseProvider);
     }
 
     if (videoPlayerOptions?.mixWithOthers != null) {

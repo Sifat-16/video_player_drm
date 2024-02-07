@@ -227,9 +227,10 @@ class _BumbleBeeRemoteVideoState extends State<_BumbleBeeRemoteVideo> {
       Uri.parse(
           'https://vz-8d5707b2-5d8.b-cdn.net/e51cb4fb-4ede-443d-ba8b-0d7d912c3416/playlist.m3u8'),
       closedCaptionFile: _loadCaptions(),
-      isDrmSupported: true,
+      isDrmSupported: false,
       drmLicenseUrl:
           "https://video-core-api.bunnycdn.com/WidevineLicense/125892/e51cb4fb-4ede-443d-ba8b-0d7d912c3416?contentId=e51cb4fb-4ede-443d-ba8b-0d7d912c3416",
+      licenseProvider: "WIDEVINE",
       videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true),
     );
 

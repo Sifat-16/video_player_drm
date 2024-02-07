@@ -8,9 +8,11 @@ import static com.google.android.exoplayer2.Player.REPEAT_MODE_ALL;
 import static com.google.android.exoplayer2.Player.REPEAT_MODE_OFF;
 
 import android.content.Context;
+import android.media.browse.MediaBrowser;
 import android.net.Uri;
 import android.view.Surface;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.ExoPlayer;
@@ -31,6 +33,8 @@ import com.google.android.exoplayer2.source.smoothstreaming.SsMediaSource;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSource;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
+import com.google.android.exoplayer2.util.Log;
+import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.Util;
 import io.flutter.plugin.common.EventChannel;
 import io.flutter.view.TextureRegistry;
@@ -39,6 +43,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.UUID;
 
 final class VideoPlayer {
   private static final String FORMAT_SS = "ss";
@@ -56,6 +62,8 @@ final class VideoPlayer {
 
   private final EventChannel eventChannel;
 
+
+
   private static final String USER_AGENT = "User-Agent";
 
   @VisibleForTesting boolean isInitialized = false;
@@ -70,12 +78,20 @@ final class VideoPlayer {
       TextureRegistry.SurfaceTextureEntry textureEntry,
       String dataSource,
       String formatHint,
+
       @NonNull Map<String, String> httpHeaders,
-      VideoPlayerOptions options) {
+      VideoPlayerOptions options,
+      @Nullable boolean isDrmSupported,
+      @Nullable  String drmLicense,
+      @Nullable String licenseProvider
+
+  ) {
     this.eventChannel = eventChannel;
     this.textureEntry = textureEntry;
     this.options = options;
 
+
+    Log.i("License url", "License url "+drmLicense);
     ExoPlayer exoPlayer = new ExoPlayer.Builder(context).build();
     Uri uri = Uri.parse(dataSource);
 
@@ -83,7 +99,14 @@ final class VideoPlayer {
     DataSource.Factory dataSourceFactory =
         new DefaultDataSource.Factory(context, httpDataSourceFactory);
 
-    MediaSource mediaSource = buildMediaSource(uri, dataSourceFactory, formatHint);
+    MediaSource mediaSource = buildMediaSource(uri,
+            dataSourceFactory,
+            formatHint,
+            isDrmSupported,
+            drmLicense,
+            licenseProvider
+    );
+
 
     exoPlayer.setMediaSource(mediaSource);
     exoPlayer.prepare();
@@ -124,7 +147,7 @@ final class VideoPlayer {
   }
 
   private MediaSource buildMediaSource(
-      Uri uri, DataSource.Factory mediaDataSourceFactory, String formatHint) {
+      Uri uri, DataSource.Factory mediaDataSourceFactory, String formatHint, @Nullable boolean isDrmSupported, @Nullable String drmLicense, @Nullable String licenseProvider) {
     int type;
     if (formatHint == null) {
       type = Util.inferContentType(uri);
@@ -149,24 +172,82 @@ final class VideoPlayer {
     }
     switch (type) {
       case C.CONTENT_TYPE_SS:
-        return new SsMediaSource.Factory(
-                new DefaultSsChunkSource.Factory(mediaDataSourceFactory), mediaDataSourceFactory)
-            .createMediaSource(MediaItem.fromUri(uri));
+//        return new SsMediaSource.Factory(
+//                new DefaultSsChunkSource.Factory(mediaDataSourceFactory), mediaDataSourceFactory)
+//            .createMediaSource(MediaItem.fromUri(uri));
+      return new SsMediaSource.Factory(
+              new DefaultSsChunkSource.Factory(mediaDataSourceFactory), mediaDataSourceFactory)
+              .createMediaSource(setMediaItem(uri, isDrmSupported, drmLicense, licenseProvider));
       case C.CONTENT_TYPE_DASH:
+//        return new DashMediaSource.Factory(
+//                new DefaultDashChunkSource.Factory(mediaDataSourceFactory), mediaDataSourceFactory)
+//            .createMediaSource(MediaItem.fromUri(uri));
         return new DashMediaSource.Factory(
                 new DefaultDashChunkSource.Factory(mediaDataSourceFactory), mediaDataSourceFactory)
-            .createMediaSource(MediaItem.fromUri(uri));
+                .createMediaSource(setMediaItem(uri, isDrmSupported, drmLicense, licenseProvider));
       case C.CONTENT_TYPE_HLS:
+//        return new HlsMediaSource.Factory(mediaDataSourceFactory)
+//            .createMediaSource(MediaItem.fromUri(uri));
         return new HlsMediaSource.Factory(mediaDataSourceFactory)
-            .createMediaSource(MediaItem.fromUri(uri));
+                .createMediaSource(setMediaItem(uri, isDrmSupported, drmLicense, licenseProvider));
       case C.CONTENT_TYPE_OTHER:
+//        return new ProgressiveMediaSource.Factory(mediaDataSourceFactory)
+//            .createMediaSource(MediaItem.fromUri(uri));
         return new ProgressiveMediaSource.Factory(mediaDataSourceFactory)
-            .createMediaSource(MediaItem.fromUri(uri));
+                .createMediaSource(setMediaItem(uri, isDrmSupported, drmLicense, licenseProvider));
       default:
         {
           throw new IllegalStateException("Unsupported type: " + type);
         }
     }
+  }
+
+
+  private MediaItem setMediaItem(Uri uri,
+                                 @Nullable boolean isDrmSupported,
+                                 @Nullable String drmLicense,
+                                 @Nullable String licenseProvider
+  ){
+
+    MediaItem mediaItem;
+    if (isDrmSupported||drmLicense!=null){
+
+      UUID licenseScheme;
+
+      if(licenseProvider==null){
+        licenseScheme = C.WIDEVINE_UUID;
+      }else{
+        switch (licenseProvider) {
+          case "WIDEVINE":
+            licenseScheme = C.WIDEVINE_UUID;
+            break;
+          case "PLAYREADY":
+            licenseScheme = C.PLAYREADY_UUID;
+            break;
+          case "CLEARKEY":
+            licenseScheme = C.CLEARKEY_UUID;
+            break;
+          case "COMMON_PSSH":
+            licenseScheme = C.COMMON_PSSH_UUID;
+            break;
+          default:
+            licenseScheme = C.UUID_NIL;
+            break;
+        }
+      }
+
+      mediaItem = new MediaItem.Builder()
+              .setUri(uri)  // Set the media URL// Set the MIME type of the media
+              .setDrmConfiguration(
+                      new MediaItem.DrmConfiguration.Builder(licenseScheme)
+                              .setLicenseUri(drmLicense)  // Set the DRM license server URL// Set custom DRM request headers
+                              .build()
+              )
+              .build();
+    }else{
+      mediaItem = MediaItem.fromUri(uri);
+    }
+    return mediaItem;
   }
 
   private void setUpVideoPlayer(ExoPlayer exoPlayer, QueuingEventSink eventSink) {

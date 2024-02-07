@@ -144,6 +144,7 @@ class CreateMessage {
     this.formatHint,
     this.isDrmSupported,
     this.drmLicenseUrl,
+    this.licenseProvider,
     required this.httpHeaders,
   });
 
@@ -157,6 +158,8 @@ class CreateMessage {
 
   String? formatHint;
 
+  String? licenseProvider;
+
   Map<String?, String?> httpHeaders;
 
   Object encode() {
@@ -168,6 +171,7 @@ class CreateMessage {
       httpHeaders,
       isDrmSupported,
       drmLicenseUrl,
+      licenseProvider,
     ];
   }
 
@@ -181,7 +185,8 @@ class CreateMessage {
         httpHeaders:
             (result[4] as Map<Object?, Object?>?)!.cast<String?, String?>(),
         isDrmSupported: result[5] as bool?,
-        drmLicenseUrl: result[6] as String?);
+        drmLicenseUrl: result[6] as String?,
+        licenseProvider: result[7] as String?);
   }
 }
 

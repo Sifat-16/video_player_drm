@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3d4185eb-e93e-4970-8a07-77a120d093f2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/video_player_android/android/.gradle/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video_player_android/android/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video_player_android/android/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video_player_android/android/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video_player_android/android/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video_player_android/android/.idea/migrations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video_player_android/android/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video_player_android/android/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video_player_android/android/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/video_player_android/android/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/.dart_tool/package_config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/.dart_tool/package_config_subset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/.dart_tool/version" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/example/.dart_tool/flutter_build/6db8a148717b0495c9f0a64f6847416a/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/example/.dart_tool/flutter_build/6db8a148717b0495c9f0a64f6847416a/.filecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/example/.dart_tool/flutter_build/6db8a148717b0495c9f0a64f6847416a/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/example/.dart_tool/flutter_build/6db8a148717b0495c9f0a64f6847416a/app.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/example/.dart_tool/flutter_build/6db8a148717b0495c9f0a64f6847416a/debug_android_application.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/example/.dart_tool/flutter_build/6db8a148717b0495c9f0a64f6847416a/debug_android_application.stamp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/example/.dart_tool/flutter_build/6db8a148717b0495c9f0a64f6847416a/flutter_assets.d" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/example/.dart_tool/flutter_build/6db8a148717b0495c9f0a64f6847416a/flutter_assets.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/example/.dart_tool/flutter_build/6db8a148717b0495c9f0a64f6847416a/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/example/.dart_tool/flutter_build/6db8a148717b0495c9f0a64f6847416a/kernel_snapshot.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/example/.dart_tool/flutter_build/6db8a148717b0495c9f0a64f6847416a/kernel_snapshot.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/example/.dart_tool/flutter_build/6db8a148717b0495c9f0a64f6847416a/kernel_snapshot.stamp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/example/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/example/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/example/android/.gradle/7.6.3/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/example/android/.gradle/7.6.3/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/example/android/.gradle/7.6.3/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/example/android/.gradle/7.6.3/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/example/android/.gradle/7.6.3/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/example/android/.gradle/7.6.3/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/example/android/.gradle/7.6.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/example/android/.gradle/7.6.3/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/example/android/.gradle/7.6.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/example/android/.gradle/7.6.3/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/example/android/.gradle/7.6.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/example/android/.gradle/7.6.3/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/example/android/.gradle/7.6.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/example/android/.gradle/7.6.3/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/example/android/.gradle/7.6.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/example/android/.gradle/7.6.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/example/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/example/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/example/android/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/example/android/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/example/android/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/example/android/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/lib/video_player.dart" beforeDir="false" afterPath="$PROJECT_DIR$/video_player/lib/video_player.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player/pubspec.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_android/.dart_tool/package_config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_android/.dart_tool/package_config_subset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_android/.dart_tool/version" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_android/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/video_player_android/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_android/android/src/main/java/io/flutter/plugins/videoplayer/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/video_player_android/android/src/main/java/io/flutter/plugins/videoplayer/Messages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_android/android/src/main/java/io/flutter/plugins/videoplayer/VideoPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/video_player_android/android/src/main/java/io/flutter/plugins/videoplayer/VideoPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_android/android/src/main/java/io/flutter/plugins/videoplayer/VideoPlayerPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/video_player_android/android/src/main/java/io/flutter/plugins/videoplayer/VideoPlayerPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_android/lib/src/android_video_player.dart" beforeDir="false" afterPath="$PROJECT_DIR$/video_player_android/lib/src/android_video_player.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_android/lib/src/messages.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/video_player_android/lib/src/messages.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_android/pubspec.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_avfoundation/.dart_tool/package_config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_avfoundation/.dart_tool/package_config_subset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_avfoundation/.dart_tool/version" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_avfoundation/pubspec.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_platform_interface/.dart_tool/package_config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_platform_interface/.dart_tool/package_config_subset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_platform_interface/.dart_tool/version" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_platform_interface/lib/video_player_platform_interface.dart" beforeDir="false" afterPath="$PROJECT_DIR$/video_player_platform_interface/lib/video_player_platform_interface.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_platform_interface/pubspec.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_web/.dart_tool/package_config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_web/.dart_tool/package_config_subset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_web/.dart_tool/version" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_player_web/pubspec.lock" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2bzRB7EFRV8nZcRyqvTn55pNNER" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "io.flutter.reload.alreadyRun": "true",
+    "last_opened_file_path": "E:/sif/video_player",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/video_player/example/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flutter.main.dart" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3d4185eb-e93e-4970-8a07-77a120d093f2" name="Changes" comment="" />
+      <created>1707215782787</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707215782787</updated>
+    </task>
+    <servers />
+  </component>
+</project>

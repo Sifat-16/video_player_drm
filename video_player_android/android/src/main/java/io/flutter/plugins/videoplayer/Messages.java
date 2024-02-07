@@ -44,6 +44,7 @@ public class Messages {
     if (exception instanceof FlutterError) {
       FlutterError error = (FlutterError) exception;
       errorList.add(error.code);
+
       errorList.add(error.getMessage());
       errorList.add(error.details);
     } else {
@@ -462,12 +463,49 @@ public class Messages {
       return httpHeaders;
     }
 
+
     public void setHttpHeaders(@NonNull Map<String, String> setterArg) {
       if (setterArg == null) {
         throw new IllegalStateException("Nonnull field \"httpHeaders\" is null.");
       }
       this.httpHeaders = setterArg;
     }
+
+
+    private @Nullable boolean isDrmSupported;
+
+    public @Nullable boolean getIsDrmSupported() {
+      return isDrmSupported;
+    }
+
+    public void setIsDrmSupported(@Nullable boolean setterArg) {
+      this.isDrmSupported = setterArg;
+    }
+
+
+    private @Nullable String drmLicenseUrl;
+
+    public @Nullable String getDrmLicenseUrl() {
+      return drmLicenseUrl;
+    }
+
+    public void setDrmLicenseUrl(@Nullable String setterArg) {
+      this.drmLicenseUrl = setterArg;
+    }
+
+
+
+    private @Nullable String licenseProvider;
+
+    public @Nullable String getLicenseProvider() {
+      return licenseProvider;
+    }
+
+    public void setLicenseProvider(@Nullable String setterArg) {
+      this.licenseProvider = setterArg;
+    }
+
+
 
     /** Constructor is non-public to enforce null safety; use Builder. */
     CreateMessage() {}
@@ -497,15 +535,36 @@ public class Messages {
 
       private @Nullable String formatHint;
 
-      public @NonNull Builder setFormatHint(@Nullable String setterArg) {
-        this.formatHint = setterArg;
-        return this;
-      }
+
 
       private @Nullable Map<String, String> httpHeaders;
 
       public @NonNull Builder setHttpHeaders(@NonNull Map<String, String> setterArg) {
         this.httpHeaders = setterArg;
+        return this;
+      }
+
+
+      private @Nullable boolean isDrmSupported;
+
+      public @NonNull Builder setIsDrmSupported(@Nullable boolean setterArg) {
+        this.isDrmSupported = setterArg;
+        return this;
+      }
+
+
+      private @Nullable String drmLicenseUrl;
+
+      public @NonNull Builder setDrmLicenseUrl(@Nullable String setterArg) {
+        this.drmLicenseUrl = setterArg;
+        return this;
+      }
+
+
+      private @Nullable String licenseProvider;
+
+      public @NonNull Builder setLicenseProvider(@Nullable String setterArg) {
+        this.licenseProvider = setterArg;
         return this;
       }
 
@@ -516,18 +575,24 @@ public class Messages {
         pigeonReturn.setPackageName(packageName);
         pigeonReturn.setFormatHint(formatHint);
         pigeonReturn.setHttpHeaders(httpHeaders);
+        pigeonReturn.setIsDrmSupported(isDrmSupported);
+        pigeonReturn.setDrmLicenseUrl(drmLicenseUrl);
+        pigeonReturn.setLicenseProvider(licenseProvider);
         return pigeonReturn;
       }
     }
 
     @NonNull
     ArrayList<Object> toList() {
-      ArrayList<Object> toListResult = new ArrayList<Object>(5);
+      ArrayList<Object> toListResult = new ArrayList<Object>(8);
       toListResult.add(asset);
       toListResult.add(uri);
       toListResult.add(packageName);
       toListResult.add(formatHint);
       toListResult.add(httpHeaders);
+      toListResult.add(isDrmSupported);
+      toListResult.add(drmLicenseUrl);
+      toListResult.add(licenseProvider);
       return toListResult;
     }
 
@@ -543,6 +608,12 @@ public class Messages {
       pigeonResult.setFormatHint((String) formatHint);
       Object httpHeaders = list.get(4);
       pigeonResult.setHttpHeaders((Map<String, String>) httpHeaders);
+      Object isDrmSupported = list.get(5);
+      pigeonResult.setIsDrmSupported((boolean) isDrmSupported);
+      Object drmLicense = list.get(6);
+      pigeonResult.setDrmLicenseUrl((String) drmLicense);
+      Object licenseProvider = list.get(7);
+      pigeonResult.setLicenseProvider((String) licenseProvider);
       return pigeonResult;
     }
   }
@@ -720,6 +791,7 @@ public class Messages {
                 ArrayList<Object> wrapped = new ArrayList<Object>();
                 ArrayList<Object> args = (ArrayList<Object>) message;
                 CreateMessage msgArg = (CreateMessage) args.get(0);
+
                 try {
                   TextureMessage output = api.create(msgArg);
                   wrapped.add(0, output);
